@@ -1,0 +1,31 @@
+{% extends 'layout/baseform.html' %}
+
+{% block title %}
+    <h2>Edit Item :{{item.name}}</h2>
+
+{% endblock%}
+
+{% block content %}
+
+<form action="{% url 'item_edit' item.id %}" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        Name: <input type="text" name='name' value="{{item.name}}" > <br>
+        <hr>
+        Description: <input type="text" name="description" value="{{item.description}}"> <br>
+        <hr>
+        Price: <input type="number" name="price" value="{{item.price}}"> <br>
+        <hr>
+        Department: <select name="department_id" id="" multiple>
+                <option value="-1" selected>Select department</option>
+                {% for dep in all_departments %}
+                <option value="{{ dep.id }}">{{ dep.title }}</option>
+                {% endfor %}
+        </select> <br>
+        <hr>
+         Images:<input type="file" name="image" accept="image/*"><br>
+        <hr>
+        <button>Save</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="{% static 'css/item.css' %}" type="text/css">
+{% block styles %}
+{% endblock %}
+</head>
+<body>
+
+{% block title %}
+{% endblock%}
+
+<table>
+<tr>
+    <th>ID #</th>
+        <th>name</th>
+        <th>Price</th>
+        <th>department</th>
+      <th>Image</th>
+        <th>Actions</th>
+</tr>
+
+{% block content %}
+{% endblock %}
+
+</table>
+
+{% block scripts %}
+{% endblock %}
+</body>
+</html>
